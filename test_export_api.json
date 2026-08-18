@@ -1,0 +1,42 @@
+{
+  "query": "SELECT * FROM employees WHERE department = 'Engineering'",
+  "exported_at": "2026-08-18T15:36:07.495189",
+  "row_count": 5,
+  "data": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "age": 25,
+      "department": "Engineering",
+      "salary": 75000.5
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "age": 30,
+      "department": "Marketing",
+      "salary": 65000.0
+    },
+    {
+      "id": 3,
+      "name": "Charlie",
+      "age": 28,
+      "department": "Engineering",
+      "salary": 80000.0
+    },
+    {
+      "id": 4,
+      "name": "Diana",
+      "age": 35,
+      "department": "Sales",
+      "salary": 72000.75
+    },
+    {
+      "id": 5,
+      "name": "Eve",
+      "age": 27,
+      "department": "Engineering",
+      "salary": 78000.25
+    }
+  ]
+}

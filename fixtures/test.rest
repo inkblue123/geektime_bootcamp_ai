@@ -1,0 +1,74 @@
+### REST Client Test File
+### For VSCode REST Client extension
+
+@baseUrl = http://localhost:8000/api/v1
+@dbName = testdb
+@testDbUrl = sqlite:///./test.db
+
+### 1. Health Check
+GET http://localhost:8000/health
+
+###
+
+### 2. List All Database Connections
+GET {{baseUrl}}/database
+
+###
+
+### 3. Create Database Connection
+POST {{baseUrl}}/database
+Content-Type: application/json
+
+{
+  "name": "{{dbName}}",
+  "connection_string": "{{testDbUrl}}",
+  "description": "Test database for API testing"
+}
+
+###
+
+### 4. Get Specific Database Connection (replace with actual ID)
+@dbId = 1
+GET {{baseUrl}}/database/{{dbId}}
+
+###
+
+### 5. Get Database Metadata
+GET {{baseUrl}}/database/{{dbId}}/metadata
+
+###
+
+### 6. Execute SQL Query
+POST {{baseUrl}}/query
+Content-Type: application/json
+
+{
+  "database_id": {{dbId}},
+  "sql_query": "SELECT name FROM sqlite_master WHERE type='table'"
+}
+
+###
+
+### 7. Execute Natural Language Query
+POST {{baseUrl}}/query
+Content-Type: application/json
+
+{
+  "database_id": {{dbId}},
+  "natural_language_query": "Show me all the tables in this database"
+}
+
+###
+
+### 8. Get Query History
+GET {{baseUrl}}/query/history?database_id={{dbId}}&limit=10
+
+###
+
+### 9. Get All Query History
+GET {{baseUrl}}/query/history
+
+###
+
+### 10. Delete Database Connection
+DELETE {{baseUrl}}/database/{{dbId}}
